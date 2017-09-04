@@ -9,10 +9,10 @@ if [ ! -f /usr/local/extra_homestead_software_installed ]; then
 
 
     # We should be super user
-    sudo -s
+    #sudo -s
 
-    apt-get update
-    apt-get install -y mycli
+    sudo apt-get update
+    sudo apt-get install -y mycli
 
 
     cd /home/vagrant/Code || exit
@@ -36,7 +36,9 @@ if [ ! -f /usr/local/extra_homestead_software_installed ]; then
     #
     # remember that the extra software is installed
     #
-    touch /usr/local/extra_homestead_software_installed
+    sudo touch /usr/local/extra_homestead_software_installed
 else
     echo "extra software already installed... moving on..."
 fi
+
+exit
