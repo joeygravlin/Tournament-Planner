@@ -1,0 +1,46 @@
+ip: 192.168.10.10
+memory: 1024
+cpus: 1
+provider: virtualbox
+
+mariadb: true
+
+authorize: ~/.ssh/id_rsa.pub
+keys:
+    - ~/.ssh/id_rsa
+folders:
+    -
+        map: /home/gravj/gvsu/cis467/Tournament-Planner
+        to: /home/vagrant/Code
+## NFS folder syncing is faster than the default, but only works on Linux/macOS.
+## Feel free to uncoment the following line if you have NFS on your host system already.
+#      type: "nfs"
+## Windows host machines should use VirtualBox shared folders or
+## could try https://www.vagrantup.com/docs/synced-folders/smb.html#limitations
+
+##
+## Also, in case any of you are having trouble adjusting this config for Windows,
+## check out https://medium.com/@eaimanshoshi/i-am-going-to-write-down-step-by-step-procedure-to-setup-homestead-for-laravel-5-2-17491a423aa
+##
+
+sites:
+    -
+        map: tournament-planner.app
+        to: /home/vagrant/Code/public
+databases:
+    - homestead
+name: tournament-planner
+hostname: tournament-planner
+
+# blackfire:
+#     - id: foo
+#       token: bar
+#       client-id: foo
+#       client-token: bar
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
