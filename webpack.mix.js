@@ -13,4 +13,11 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
-   .browserSync('tournament-planner.app');
+   .browserSync({
+       proxy: 'tournament-planner.app',
+       notify: false,
+       open: false,
+       files: [
+           '!node_modules', '!vendor', 'public/{*,**/*}', '{*,**/*}.php'
+       ]
+   });

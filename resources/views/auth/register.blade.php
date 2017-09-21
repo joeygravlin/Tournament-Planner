@@ -72,6 +72,9 @@
                 </div>
             </div>
         </div>
+
+        {{-- Test Example.vue --}}
+        <example></example>
     </div>
 </div>
 @endsection
