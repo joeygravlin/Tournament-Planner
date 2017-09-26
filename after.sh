@@ -21,6 +21,7 @@ if [ ! -f /usr/local/extra_homestead_software_installed ]; then
 
     # Last step is to install Laravel Elixir.
     npm install yarn --save-dev
+    sudo npm upgrade --global yarn
     yarn install
     # If you are developing on a Windows system or you are running your VM on a
     # Windows host system, you may need to run the npm install command with the
