@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Edit your Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="./index.html">Home</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <!-- this nav only show when logged in-->
+                <li class="active"><a href="./profile.html">Profile</a></li>
+                <li><a href="./createT.html">New</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="login.html">Login or Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <!-- only registert people ? -->
+        <h1>Your T</h1>
+        <p>Fill in the score of the match</p>
+        <div class=row>
+            <!--placeholder Table of the selected T-->
+            <div class="col-sm-12 table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Team 1</th>
+                            <th>Team 2</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>One</td>
+                            <td>two</td>
+                            <td>7:8</td>
+                        </tr>
+                        <tr>
+                            <td>three</td>
+                            <td>four</td>
+                            <td>5:3</td>
+                        </tr>
+                        <tr>
+                            <td>five</td>
+                            <td>six</td>
+                            <td>
+                                <!-- fill in the score with function -->
+                                <!-- withot reload the page, write in DB -->
+                                <div class="form-inline">
+                                    <input type="text" class="form-control" id="text">
+                                    <button type="submit" class="btn btn-default">save</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+        <div class="row">
+            <a href="./cupbracket.html" class="btn btn-info" role="button">Bracket</a>
+        </div>
+    </div>
+</body>
+
+</html>
