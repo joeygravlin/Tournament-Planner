@@ -26,4 +26,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //one to many
+    public function createdTournaments(){
+        return $this->hasMany('App\Tournament', 'creator', 'id');
+    }
+
+    //many to many
+    public function tournaments(){
+        return $this->belongsToMany('App\Tournament','users_touranments');
+    }
+
+    //many to many
+    public function teams(){
+        return $this->belongsToMany('App\Team','users_local_teams');
+    }
 }
