@@ -23,6 +23,7 @@
     export default {
         data () {
             return {
+                title: 'About Page',
                 msg: 'Hello world! THIS IS A TEST'
             }
         },
