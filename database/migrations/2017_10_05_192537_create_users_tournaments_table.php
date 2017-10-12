@@ -13,12 +13,27 @@ class CreateUsersTournamentsTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
+
         Schema::create('users_tournaments', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
-            $table->integer('tournament_id')->unsigned();
+            $table->integer('user_id')
+                  ->unsigned();
+
+            $table->integer('tournament_id')
+                  ->unsigned();
+
             $table->primary(['user_id', 'tournament_id']);
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('tournament_id')->references('id')->on('tournaments')->onDelete('cascade');
+
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
+
+            $table->foreign('tournament_id')
+                  ->references('id')
+                  ->on('tournaments')
+                  ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

@@ -13,11 +13,20 @@ class CreateLocalTeamsTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
+
         Schema::create('local_teams', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('tournament_id')->unsigned();
-            $table->foreign('tournament_id')->references('id')->on('tournaments')->onDelete('cascade');
+
+            $table->integer('tournament_id')
+                  ->unsigned();
+
+            $table->foreign('tournament_id')
+                  ->references('id')
+                  ->on('tournaments')
+                  ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

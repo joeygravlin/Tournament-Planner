@@ -13,12 +13,20 @@ class CreateGuestsTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
+
         Schema::create('guests', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('team_id')->unsigned();
-            $table->foreign('team_id')->references('id')->on('local_teams')->onDelete('cascade');
-            
+
+            $table->integer('team_id')
+                  ->unsigned();
+
+            $table->foreign('team_id')
+                  ->references('id')
+                  ->on('local_teams')
+                  ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

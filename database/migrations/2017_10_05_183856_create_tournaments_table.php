@@ -13,13 +13,25 @@ class CreateTournamentsTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
+
         Schema::create('tournaments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('creator')->unsigned();
-            $table->foreign('creator')->references('id')->on('users')->onDelete('cascade');
+
+            $table->integer('creator')
+                  ->unsigned();
+
+            $table->foreign('creator')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
+
            	$table->string('description');
-            $table->boolean('public')->default(FALSE);
+
+            $table->boolean('public')
+                  ->default(FALSE);
+
             $table->integer('number_of_teams');
             $table->integer('max_team_size');
             $table->timestamps();

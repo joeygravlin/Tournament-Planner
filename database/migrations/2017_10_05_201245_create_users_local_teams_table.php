@@ -13,13 +13,27 @@ class CreateUsersLocalTeamsTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
+
         Schema::create('users_local_teams', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
-            $table->integer('team_id')->unsigned();
+            $table->integer('user_id')
+                  ->unsigned();
+
+            $table->integer('team_id')
+                  ->unsigned();
+
             $table->primary(['user_id', 'team_id']);
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('team_id')->references('id')->on('local_teams')->onDelete('cascade');
-            
+
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
+
+            $table->foreign('team_id')
+                  ->references('id')
+                  ->on('local_teams')
+                  ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
