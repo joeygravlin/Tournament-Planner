@@ -6,25 +6,58 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'local_teams';
 
-    //one to many
-    public function guests(){
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name'];
+
+
+    /**
+     * Get the guests on this team.
+     * (one to many)
+     * @return Illuminate\Support\Collection App\Guest
+     */
+    public function guests()
+    {
         return $this->hasMany('App\Guest');
     }
 
-    //one to many
-    public function brackets(){
+    /**
+     * Get the brackets this team belongs to.
+     * (one to many)
+     * @return Illuminate\Support\Collection App\Bracket
+     */
+    public function brackets()
+    {
         return $this->hasMany('App\Bracket');
     }
 
-    //many to one
-    public function tournament(){
+    /**
+     * Get the tournaments this team belongs to.
+     * (one to many)
+     * @return Illuminate\Support\Collection App\Tournament
+     */
+    public function tournament()
+    {
         return $this->belongsTo('App\Tournament');
     }
 
-    //many to many
-    public function users(){
+    /**
+     * Get the users on this team.
+     * (one to many)
+     * @return Illuminate\Support\Collection App\User
+     */
+    public function users()
+    {
         return $this->belongsToMany('App\User', 'users_local_teams');
     }
 }

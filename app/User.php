@@ -27,18 +27,33 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    //one to many
-    public function createdTournaments(){
+    /**
+     * Get Tournaments this User has created.
+     * (one to many)
+     * @return Illuminate\Support\Collection App\Tournament
+     */
+    public function createdTournaments()
+    {
         return $this->hasMany('App\Tournament', 'creator', 'id');
     }
 
-    //many to many
-    public function tournaments(){
+    /**
+     * Get Tournaments this User is participating in.
+     * (one to many)
+     * @return Illuminate\Support\Collection App\Tournament
+     */
+    public function tournaments()
+    {
         return $this->belongsToMany('App\Tournament','users_touranments');
     }
 
-    //many to many
-    public function teams(){
+    /**
+     * Get Tournaments this User is participating in.
+     * (one to many)
+     * @return Illuminate\Support\Collection App\Team
+     */
+    public function teams()
+    {
         return $this->belongsToMany('App\Team','users_local_teams');
     }
 }
