@@ -16,7 +16,14 @@
 
 
 <script>
-
+  var create = new Vue({
+      el: 'createT'
+      methods: {
+          save: function() {
+              //other page
+          }
+      }
+  })
 </script>
 
 
