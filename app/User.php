@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'email',
     ];
 
     //one to many
@@ -32,6 +32,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Tournament', 'creator', 'id');
     }
 
+<<<<<<< Updated upstream
     //many to many
     public function tournaments(){
         return $this->belongsToMany('App\Tournament','users_touranments');
@@ -39,6 +40,25 @@ class User extends Authenticatable
 
     //many to many
     public function teams(){
+=======
+    /**
+     * Get Tournaments this User is participating in.
+     * (many to many)
+     * @return Illuminate\Support\Collection App\Tournament
+     */
+    public function tournaments()
+    {
+        return $this->belongsToMany('App\Tournament','users_tournaments');
+    }
+
+    /**https://files.slack.com/files-pri/T35B1JAET-F7SPLRLAJ/1.png
+     * Get Tournaments this User is participating in.
+     * (many to many)
+     * @return Illuminate\Support\Collection App\Team
+     */
+    public function teams()
+    {
+>>>>>>> Stashed changes
         return $this->belongsToMany('App\Team','users_local_teams');
     }
 }
