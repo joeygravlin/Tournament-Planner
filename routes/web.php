@@ -11,10 +11,45 @@
 |
 */
 
+//use App\User;
+
 Route::get('/', function () {
     return view('welcome');
 });
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> 2ede80d... added routes and GET calls for RESTful API
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+<<<<<<< HEAD
+=======
+
+
+
+
+
+//user specific
+Route::get('user','UserController@currentUser');
+Route::get('user/tournaments','UserController@tournaments');
+
+//tournament specific
+Route::get('tournament/{id}/users', 'TournamentController@users');
+Route::get('tournament/{id}/teams', 'TournamentController@teams');
+Route::get('tournament/{id}/brackets', 'TournamentController@brackets');
+
+//team specific
+Route::get('team/{id}/users','TeamController@users');
+Route::get('team/{id}/guests', 'TeamController@guests');
+
+//for any table: get row via 'table/id'
+Route::get('user/{user}', 'UserController@show');
+Route::get('team/{team}', 'TeamController@show');
+Route::get('tournament/{tournament}', 'TournamentController@show');
+Route::get('bracket/{bracket}', 'BracketController@show');
+Route::get('guest/{guest}','GuestController@show');
+>>>>>>> Stashed changes
+>>>>>>> 2ede80d... added routes and GET calls for RESTful API
