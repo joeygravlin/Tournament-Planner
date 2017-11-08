@@ -6,13 +6,13 @@
                     <div class="panel-heading">{{ title }}</div>
 
                     <div class="panel-body">
-                        I'm an example component!
+                        <strong>Howdy!</strong>
 
-                        <p><mark>Testing out browsersync...</mark></p>
+                        <p>Tournament Planner is a webapp designed for organizing and managing tournaments all sorts!</p>
 
-                        <div class="example">
-                            {{ msg }}
-                        </div>
+                        <p>It is currently limited to single-elimination tournaments, although we hope to add other types soon. Stay tuned!</p>
+
+                        <div class="example"><p>{{ msg }}</p></div>
                     </div>
                 </div>
             </div>
@@ -23,6 +23,7 @@
 
 <script>
     export default {
+        name: 'home',
         data () {
             return {
                 title: 'Home Page',
@@ -30,7 +31,7 @@
             }
         },
         mounted () {
-            console.log ('Component mounted.')
+            console.log ('Component mounted: ' + this.$options.name)
         }
     }
 </script>

@@ -7,6 +7,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="site-name" content="{{ config('app.name') }}">
+    <meta name="api-domain" content="{{ config('app.url').'/api' }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -15,16 +17,15 @@
 </head>
 <body>
     <div id="app">
-        {{-- @include ('layouts.header') --}}
-        @include ('layouts.nav')
+        {{-- @include ('layouts.nav') --}}
 
         @yield('content')
 
-        <section class="section">
+        {{-- <section class="section">
             <div class="container">
                 <router-view></router-view>
             </div>
-        </section>
+        </section> --}}
     </div>
 
     <!-- Scripts -->

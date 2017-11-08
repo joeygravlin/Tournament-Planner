@@ -7,14 +7,15 @@ window._ = require('lodash');
  * code may be modified to fit the specific needs of your application.
  */
 
-// try {
-//     window.$ = window.jQuery = require('jquery');
+try {
+    window.$ = window.jQuery = require('jquery');
 
-//     require('bootstrap-sass');
-// } catch (e) {}
+    require('bootstrap-sass');
+} catch (e) {
+    console.error('Error requiring jQuery.');
+}
 
 /******************************************************************************/
-
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -28,7 +29,6 @@ Vue.use(VueRouter);
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-
 
 window.axios = axios;
 
@@ -47,6 +47,18 @@ if (token) {
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
+
+
+let apiDomain = document.head.querySelector('meta[name="api-domain"]');
+
+if (apiDomain) {
+    window.axios.defaults.baseURL = apiDomain.content;
+} else {
+    console.error('api-domain not found: https://github.com/axios/axios#global-axios-defaults');
+}
+
+
+export const siteName = document.head.querySelector('meta[name="site-name"]');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

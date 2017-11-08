@@ -7,3 +7,15 @@
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+/**
+ * Custom
+ */
+div.panel-heading { text-transform: capitalize };
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s ease;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+}

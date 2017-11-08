@@ -18,8 +18,11 @@ import router from './routes';
 
 Vue.component('example', require('./components/Example.vue'));
 
+import App from './App.vue';
+Vue.component('app', App);
+
 const app = new Vue({
     el: '#app',
-
-    router
+    router,
+    render: h => h(App)
 });

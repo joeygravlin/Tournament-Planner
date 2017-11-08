@@ -27,6 +27,18 @@
                 <router-link tag="li" to="/about">
                     <a>About</a>
                 </router-link>
+                <router-link tag="li" to="/create">
+                  <a>CreateT</a>
+                </router-link>
+                <router-link tag="li" to="/register">
+                  <a>Register</a>
+                </router-link>
+                <router-link tag="li" to="/login">
+                  <a>Login</a>
+                </router-link>
+                <router-link tag="li" to="/sign">
+                  <a>SignIn</a>
+                </router-link>
             </ul>
 
         @if (Route::has('login'))
