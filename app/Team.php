@@ -23,10 +23,6 @@ class Team extends Model
         return $this->belongsTo('App\Tournament');
     }
 
-<<<<<<< Updated upstream
-    //many to many
-    public function users(){
-=======
     /**
      * Get the users on this team.
      * (many to many)
@@ -34,7 +30,6 @@ class Team extends Model
      */
     public function users()
     {
->>>>>>> Stashed changes
         return $this->belongsToMany('App\User', 'users_local_teams');
     }
 }

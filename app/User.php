@@ -32,20 +32,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Tournament', 'creator', 'id');
     }
 
-<<<<<<< Updated upstream
     //many to many
-    public function tournaments(){
-        return $this->belongsToMany('App\Tournament','users_touranments');
-    }
-
-    //many to many
-    public function teams(){
-=======
-    /**
-     * Get Tournaments this User is participating in.
-     * (many to many)
-     * @return Illuminate\Support\Collection App\Tournament
-     */
     public function tournaments()
     {
         return $this->belongsToMany('App\Tournament','users_tournaments');
@@ -58,7 +45,6 @@ class User extends Authenticatable
      */
     public function teams()
     {
->>>>>>> Stashed changes
         return $this->belongsToMany('App\Team','users_local_teams');
     }
 }

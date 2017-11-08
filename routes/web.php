@@ -11,25 +11,12 @@
 |
 */
 
-//use App\User;
-
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> 2ede80d... added routes and GET calls for RESTful API
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-<<<<<<< HEAD
-=======
-
-
-
 
 
 //user specific
@@ -51,5 +38,3 @@ Route::get('team/{team}', 'TeamController@show');
 Route::get('tournament/{tournament}', 'TournamentController@show');
 Route::get('bracket/{bracket}', 'BracketController@show');
 Route::get('guest/{guest}','GuestController@show');
->>>>>>> Stashed changes
->>>>>>> 2ede80d... added routes and GET calls for RESTful API
