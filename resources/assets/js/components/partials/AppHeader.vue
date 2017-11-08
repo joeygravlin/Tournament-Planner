@@ -26,12 +26,31 @@
                         <a>About</a>
                     </router-link>
 
-                    <router-link :to="{name: 'tournament.create'}" tag="li" activeClass="active">
-                        <a>Create Tournament</a>
-                    </router-link>
-                    <router-link :to="{name: 'team.join'}" tag="li" activeClass="active">
-                        <a>Join Team</a>
-                    </router-link>
+                    <!-- <router-link :to="{name: 'team'}" tag="li" activeClass="active" class="dropdown"> -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tournaments <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <router-link :to="{name: 'tournament.create'}" tag="li" activeClass="active">
+                                <a>Create Tournament</a>
+                            </router-link>
+                            <!-- <li role="separator" class="divider"></li> -->
+                        </ul>
+                    </li>
+                    <!-- </router-link> -->
+
+                    <!-- <router-link :to="{name: 'team'}" tag="li" activeClass="active" class="dropdown"> -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <router-link :to="{name: 'team.join'}" tag="li" activeClass="active">
+                                <a>Join Team</a>
+                            </router-link>
+                            <!-- <li role="separator" class="divider"></li> -->
+                        </ul>
+                    </li>
+                    <!-- </router-link> -->
+
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->
