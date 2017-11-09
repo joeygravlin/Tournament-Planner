@@ -23,8 +23,13 @@ class Team extends Model
         return $this->belongsTo('App\Tournament');
     }
 
-    //many to many
-    public function users(){
+    /**
+     * Get the users on this team.
+     * (many to many)
+     * @return Illuminate\Support\Collection App\User
+     */
+    public function users()
+    {
         return $this->belongsToMany('App\User', 'users_local_teams');
     }
 }

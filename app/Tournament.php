@@ -21,8 +21,13 @@ class Tournament extends Model
         return $this->belongsTo('App\User', 'creator', 'id');
     }
 
-    //many to many
-    public function users(){
+    /**
+     * Get the Users participating in this Tournament.
+     * (many to many)
+     * @return Illuminate\Support\Collection App\User
+     */
+    public function users()
+    {
         return $this->belongsToMany('App\User', 'users_tournaments');
     }
 }
