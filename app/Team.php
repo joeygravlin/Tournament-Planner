@@ -32,4 +32,15 @@ class Team extends Model
     {
         return $this->belongsToMany('App\User', 'users_local_teams');
     }
+
+    /**
+     * @param $userid
+     * @return mixed
+     */
+    public function userAllowedToJoin($userid){
+        //check if user has joined the tournament
+        $user = User::findOrFail($userid);
+        $tid = $this->tournament_id;
+        return $user->tournaments()->where('id', $tid)->exists();
+    }
 }

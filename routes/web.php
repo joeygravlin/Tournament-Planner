@@ -29,14 +29,22 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('user','UserController@currentUser');
 Route::get('user/tournaments','UserController@tournaments');
 
+
 //tournament specific
 Route::get('tournament/{id}/users', 'TournamentController@users');
 Route::get('tournament/{id}/teams', 'TournamentController@teams');
 Route::get('tournament/{id}/brackets', 'TournamentController@brackets');
 
+Route::put('tournament/{tid}/adduser/{uid}','TournamentController@addUser');
+Route::post('tournament/create','TournamentController@create');
+
+
 //team specific
 Route::get('team/{id}/users','TeamController@users');
 Route::get('team/{id}/guests', 'TeamController@guests');
+
+Route::put('team/{tid}/adduser/{uid}','TeamController@addUser');
+Route::post('team/create','TeamController@create');
 
 //for any table: get row via 'table/id'
 Route::get('user/{user}', 'UserController@show');

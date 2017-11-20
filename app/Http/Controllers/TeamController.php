@@ -27,4 +27,30 @@ class TeamController extends Controller
     {
         return Team::find($id)->guests()->get();
     }
+
+    public function addUser($tid, $uid)
+    {
+        $team = Team::find($tid);
+
+        if(!is_null($team)){
+            $allowedtojoin = $team->userAllowedToJoin($uid);
+            if($allowedtojoin){
+                $team->users()->attach($uid);
+                echo "user added to team. \n";
+            }
+        } else {
+            echo "ERROR: team(id=". $tid.") does not exist.\n";
+        }
+    }
+
+    public function create(Request $request)
+    {
+        $team = new team;
+
+        $team->name = $request->name;
+        $team->tournament_id = $request->tournamentid;
+
+        $team->save();
+        return $team;
+    }
 }
