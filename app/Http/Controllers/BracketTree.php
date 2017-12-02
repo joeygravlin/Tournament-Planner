@@ -11,5 +11,7 @@ namespace App\Http\Controllers;
 
 class BracketTree
 {
+    public function generate(){
 
+    }
 }

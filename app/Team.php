@@ -38,9 +38,11 @@ class Team extends Model
      * @return mixed
      */
     public function userAllowedToJoin($userid){
-        //check if user has joined the tournament
+        //check if user has joined the tournament and is in no other team
         $user = User::findOrFail($userid);
         $tid = $this->tournament_id;
-        return $user->tournaments()->where('id', $tid)->exists();
+
+        return (!$user->hasTeam($tid) && $user->isInTournament($tid));
     }
+
 }

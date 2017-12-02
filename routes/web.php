@@ -38,12 +38,15 @@ Route::get('tournament/{id}/brackets', 'TournamentController@brackets');
 Route::put('tournament/{tid}/adduser/{uid}','TournamentController@addUser');
 Route::post('tournament/create','TournamentController@create');
 
+//Brackets
+Route::post('tournament/{id}/start','BracketController@initTree');
+Route::post('win/{id}','BracketController@win');
 
 //team specific
 Route::get('team/{id}/users','TeamController@users');
 Route::get('team/{id}/guests', 'TeamController@guests');
-
 Route::put('team/{tid}/adduser/{uid}','TeamController@addUser');
+Route::put('team/{tid}/addguest/{name}','TeamController@addGuest');
 Route::post('team/create','TeamController@create');
 
 //for any table: get row via 'table/id'

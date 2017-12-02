@@ -47,4 +47,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Team','users_local_teams');
     }
+
+    public function hasTeam($tid){
+        return $this->teams()->where('tournament_id', $tid)->exists();
+    }
+
+    public function isInTournament($tid){
+        $this->tournaments()->where('id', $tid)->exists();
+    }
 }
