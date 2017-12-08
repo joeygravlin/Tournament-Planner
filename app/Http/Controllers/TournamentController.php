@@ -53,4 +53,17 @@ class TournamentController extends Controller
         $tournament->save();
         return $tournament;
     }
+
+    public function removeUser($tid, $uid){
+        $tournament = Tournament::find($tid);
+        $tournament->removeUser($uid);
+        echo " ... user removed";
+    }
+
+    public function deleteTournament($id){
+        //TODO: check if this is called from creator of tournament
+        $t = Tournament::find($id);
+        $t->delete();
+        echo "tournament deleted";
+    }
 }

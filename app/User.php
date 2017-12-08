@@ -53,6 +53,6 @@ class User extends Authenticatable
     }
 
     public function isInTournament($tid){
-        $this->tournaments()->where('id', $tid)->exists();
+        return $this->tournaments()->where('id', $tid)->exists();
     }
 }

@@ -36,7 +36,9 @@ Route::get('tournament/{id}/teams', 'TournamentController@teams');
 Route::get('tournament/{id}/brackets', 'TournamentController@brackets');
 
 Route::put('tournament/{tid}/adduser/{uid}','TournamentController@addUser');
+Route::delete('tournament/{tid}/remove/{uid}','TournamentController@removeUser');
 Route::post('tournament/create','TournamentController@create');
+Route::delete('tournament/{id}','TournamentController@deleteTournament');
 
 //Brackets
 Route::post('tournament/{id}/start','BracketController@initTree');
@@ -46,8 +48,13 @@ Route::post('win/{id}','BracketController@win');
 Route::get('team/{id}/users','TeamController@users');
 Route::get('team/{id}/guests', 'TeamController@guests');
 Route::put('team/{tid}/adduser/{uid}','TeamController@addUser');
+Route::delete('team/{tid}/remove/{uid}','TeamController@removeUser');
 Route::put('team/{tid}/addguest/{name}','TeamController@addGuest');
 Route::post('team/create','TeamController@create');
+Route::delete('team/{id}','TeamController@deleteTeam');
+
+//guest specific
+Route::delete('guest/{id}','GuestController@deleteGuest');
 
 //for any table: get row via 'table/id'
 Route::get('user/{user}', 'UserController@show');

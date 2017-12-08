@@ -30,4 +30,21 @@ class Tournament extends Model
     {
         return $this->belongsToMany('App\User', 'users_tournaments');
     }
+
+    public function removeUser($uid){
+        //remove user from team first
+         $user = User::find($uid);
+
+        if($user->hasTeam($this->id)){
+            $team = $this->getTeamForUser($uid);
+            $team->removeUser($uid);
+        }
+       return $this->users()->detach($uid);
+    }
+
+    public function getTeamForUser($uid){
+        $user = User::find($uid);
+        $team = $user->teams()->where('tournament_id',$this->id)->first();
+        return $team;
+    }
 }

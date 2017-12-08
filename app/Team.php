@@ -41,8 +41,10 @@ class Team extends Model
         //check if user has joined the tournament and is in no other team
         $user = User::findOrFail($userid);
         $tid = $this->tournament_id;
-
         return (!$user->hasTeam($tid) && $user->isInTournament($tid));
     }
 
+    public function removeUser($uid){
+        return $this->users()->detach($uid);
+    }
 }

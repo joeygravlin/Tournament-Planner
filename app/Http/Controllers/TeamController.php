@@ -33,10 +33,11 @@ class TeamController extends Controller
     public function addUser($tid, $uid)
     {
         $team = Team::find($tid);
-
+        echo $team->userAllowedToJoin($uid);
         if(!is_null($team) && $team->userAllowedToJoin($uid)){
-                $team->users()->attach($uid);
+            $team->users()->attach($uid);
         } else {
+            echo "else...";
            // team does not exist / user not allowed to join
         }
     }
@@ -63,5 +64,15 @@ class TeamController extends Controller
 
         $team->save();
         return $team;
+    }
+
+    public function removeUser($tid, $uid){
+        $team = Team::find($tid);
+        $team->removeUser($uid);
+    }
+
+    public function deleteTeam($id){
+        $team = Team::find($id);
+        $team->delete();
     }
 }

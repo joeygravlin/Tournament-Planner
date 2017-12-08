@@ -17,4 +17,9 @@ class GuestController extends Controller
     {
         return $guest;
     }
+
+    public function deleteGuest($id){
+        $guest = Guest::find($id);
+        $guest->delete();
+    }
 }
