@@ -71,4 +71,12 @@ class BracketController extends Controller
             }
         }
     }
+
+    public function setScore($id, $score){
+        $bracket = Bracket::find($id);
+        if(!is_null($bracket)){
+            $bracket->score = $score;
+            $bracket->save();
+        }
+    }
 }

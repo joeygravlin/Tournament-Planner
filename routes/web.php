@@ -43,6 +43,7 @@ Route::delete('tournament/{id}','TournamentController@deleteTournament');
 //Brackets
 Route::post('tournament/{id}/start','BracketController@initTree');
 Route::post('win/{id}','BracketController@win');
+Route::post('bracket/{id}/score/{score}','BracketController@setScore');
 
 //team specific
 Route::get('team/{id}/users','TeamController@users');
