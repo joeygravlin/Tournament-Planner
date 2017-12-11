@@ -33,6 +33,7 @@ class BracketController extends Controller
                 $bracket = new Bracket();
                 $bracket->node_id = $i;
                 $bracket->tournament_id = $id;
+                $bracket->score = 0;
                 $bracket->save();
             }
 
