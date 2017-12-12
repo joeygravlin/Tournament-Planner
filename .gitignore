@@ -1,3 +1,7 @@
+### Custom
+# Backup of previous VM's bash history
+/.bash_history.bak
+
 # Default Laravel .gitignore
 /node_modules
 /public/hot
