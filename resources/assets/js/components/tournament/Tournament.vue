@@ -4,7 +4,7 @@
 <!--
             <div class="col-md-3">
                 <div class="list-group">
-                    <router-link :to="{name: 'tournament.create'}" class="list-group-item" activeClass="active" exact>Create Tournament</router-link>
+                    <router-link :to="{name: 'tournament.create'}" class="list-group-item" active-class="active" exact>Create Tournament</router-link>
                 </div>
             </div>
 
