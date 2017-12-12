@@ -11,7 +11,18 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap-sass');
-} catch (e) {}
+} catch (e) {
+    console.error('Error requiring jQuery.');
+}
+
+/******************************************************************************/
+
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import axios from 'axios';
+
+window.Vue = Vue;
+Vue.use(VueRouter);
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -19,7 +30,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -36,6 +47,18 @@ if (token) {
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
+
+
+let apiDomain = document.head.querySelector('meta[name="api-domain"]');
+
+if (apiDomain) {
+    window.axios.defaults.baseURL = apiDomain.content;
+} else {
+    console.error('api-domain not found: https://github.com/axios/axios#global-axios-defaults');
+}
+
+
+export const siteName = document.head.querySelector('meta[name="site-name"]');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

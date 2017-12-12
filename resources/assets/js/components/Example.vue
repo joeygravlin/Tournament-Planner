@@ -7,6 +7,10 @@
 
                     <div class="panel-body">
                         I'm an example component!
+
+                        <p><mark>Testing out browsersync...</mark></p>
+
+                        <div class="example">{{ msg }}</div>
                     </div>
                 </div>
             </div>
@@ -14,10 +18,24 @@
     </div>
 </template>
 
+
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        data () {
+            return {
+                msg: 'Hello world! THIS IS A TEST'
+            }
+        },
+        mounted () {
+            console.log ('Component mounted.')
         }
     }
 </script>
+
+
+<style>
+.example {
+  color: red;
+}
+</style>
+
