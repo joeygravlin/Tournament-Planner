@@ -48,15 +48,22 @@ if (token) {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
+/**
+ * Next we will register default base URL for Axios to communicate with the
+ * backend API of our application.
+ */
 
 let apiURL = document.head.querySelector('meta[name="api-url"]');
 
 if (apiURL) {
     window.axios.defaults.baseURL = apiURL.content;
 } else {
-    console.error('api-url not found: https://github.com/axios/axios#global-axios-defaults');
+    console.error('API URL not found: https://github.com/axios/axios#global-axios-defaults');
 }
 
+/**
+ * Let's pass the name of our application here too. Why not ¯\_(ツ)_/¯
+ */
 
 export const siteName = document.head.querySelector('meta[name="site-name"]');
 
