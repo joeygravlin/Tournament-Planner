@@ -19,18 +19,18 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     &nbsp;
-                    <router-link :to="{name: 'index'}" tag="li" activeClass="active" exact>
+                    <router-link :to="{name: 'index'}" tag="li" active-class="active" exact>
                         <a>Home</a>
                     </router-link>
-                    <router-link :to="{name: 'about'}" tag="li" activeClass="active">
+                    <router-link :to="{name: 'about'}" tag="li" active-class="active">
                         <a>About</a>
                     </router-link>
 
-                    <!-- <router-link :to="{name: 'team'}" tag="li" activeClass="active" class="dropdown"> -->
+                    <!-- <router-link :to="{name: 'team'}" tag="li" active-class="active" class="dropdown"> -->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tournaments <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <router-link :to="{name: 'tournament.create'}" tag="li" activeClass="active">
+                            <router-link :to="{name: 'tournament.create'}" tag="li" active-class="active">
                                 <a>Create Tournament</a>
                             </router-link>
                             <!-- <li role="separator" class="divider"></li> -->
@@ -38,11 +38,11 @@
                     </li>
                     <!-- </router-link> -->
 
-                    <!-- <router-link :to="{name: 'team'}" tag="li" activeClass="active" class="dropdown"> -->
+                    <!-- <router-link :to="{name: 'team'}" tag="li" active-class="active" class="dropdown"> -->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <router-link :to="{name: 'team.join'}" tag="li" activeClass="active">
+                            <router-link :to="{name: 'team.join'}" tag="li" active-class="active">
                                 <a>Join Team</a>
                             </router-link>
                             <!-- <li role="separator" class="divider"></li> -->
@@ -56,15 +56,15 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- <router-link v-if="!user.authenticated" -->
-                    <router-link :to="{name: 'login'}" tag="li" activeClass="active" exact>
+                    <router-link :to="{name: 'login'}" tag="li" active-class="active" exact>
                         <a>Login</a>
                     </router-link>
                     <!-- <router-link v-if="!user.authenticated" -->
-                    <router-link :to="{name: 'register'}" tag="li" activeClass="active" exact>
+                    <router-link :to="{name: 'register'}" tag="li" active-class="active" exact>
                         <a>Register</a>
                     </router-link>
                     <!-- <router-link v-if="user.authenticated" -->
-                    <router-link :to="{name: 'profile'}" tag="li" activeClass="active">
+                    <router-link :to="{name: 'profile'}" tag="li" active-class="active">
                         <a>Profile</a>
                     </router-link>
 <!--

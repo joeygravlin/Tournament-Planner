@@ -49,12 +49,12 @@ if (token) {
 }
 
 
-let apiDomain = document.head.querySelector('meta[name="api-domain"]');
+let apiURL = document.head.querySelector('meta[name="api-url"]');
 
-if (apiDomain) {
-    window.axios.defaults.baseURL = apiDomain.content;
+if (apiURL) {
+    window.axios.defaults.baseURL = apiURL.content;
 } else {
-    console.error('api-domain not found: https://github.com/axios/axios#global-axios-defaults');
+    console.error('api-url not found: https://github.com/axios/axios#global-axios-defaults');
 }
 
 
