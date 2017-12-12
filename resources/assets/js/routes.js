@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import AppHeader from './components/partials/AppHeader.vue'
 import Home from './views/Home';
 import About from './views/About';
+import Profile from './views/Profile';
 // Auth
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
@@ -47,12 +48,12 @@ const router = new VueRouter({
         },
         {
             path: '/profile',
-            // component: Profile,
+            component: Profile,
             children: [
                 {
                     path: '',
                     name: 'profile',
-                    // component: Profile,
+                    component: Profile,
                     meta: { requiresAuth: true }
                 },
                 {
